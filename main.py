@@ -64,8 +64,9 @@ def main():
         paras3 = response["data"][0]["paras_3"]
 
         min = -1
-        value = ""
+        
         for i in paras3:
+            value = ""
             if float(i["dist"]) > min:
                 value = i["alt"]
                 min = float(i["dist"])
