@@ -34,7 +34,6 @@ def get_text():
 
 
 def main():
-    global value
     global result
     result = ''
     TEXT = t.get(1.0, "end-1c")
@@ -62,17 +61,14 @@ def main():
         x = s.get(url, headers=headers)
         response = x.json()
         paras3 = response["data"][0]["paras_3"]
-
-        min = -1
-        
+        min = 0
         for i in paras3:
-            value = ""
+            #Look for highest float(i["dist"])
             if float(i["dist"]) > min:
-                value = i["alt"]
                 min = float(i["dist"])
-                #add value to result
-                result += value + "\n"
-    print(result)
+                alt = i["alt"]
+        result += alt + "\n"
+            
     get_text()
 
 
